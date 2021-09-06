@@ -8,9 +8,29 @@ import { OrderService } from '../../service/http-service/order-service/order.ser
 })
 export class OrderListComponent implements OnInit {
   orders: any;
+  orderId: any
   constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
+  this.getAllOrders()
+  }
+  onSearch(){
+    if(this.orderId.trim()){
+      this.orderService.getOrdersbyId(this.orderId).subscribe(
+        (res:any)=>{
+      console.log('res',res);
+      this.orders=[]
+      this.orders.push(res.data);
+        },(err)=>{
+      
+        }
+          )
+    }
+    else this.getAllOrders()
+    
+  }
+
+  getAllOrders(){
     this.orderService.getOrders().subscribe(
       (res: any) => {
         console.log('res', res);
@@ -20,5 +40,7 @@ export class OrderListComponent implements OnInit {
         console.log('er', err);
       }
     );
+    
   }
+  
 }

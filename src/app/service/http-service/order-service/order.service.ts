@@ -8,6 +8,10 @@ export class OrderService {
   constructor(private httpService: HttpService) {}
 
   getOrders() {
-    return this.httpService.get('usertest1');
+    return this.httpService.get('order');
+  }
+  getOrdersbyId(id:any)
+  {
+    return this.httpService.get('order/search?orderID='+id)
   }
 }

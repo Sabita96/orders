@@ -1,56 +1,79 @@
+<div class="container">
+  <h3>ORDER REQUEST FORM</h3>
+  <form>
+    <div class="row">
+      <div class="col-9 mb-3">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Enter the Customer Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtcustname"
+            placeholder="Please Enter the Name"
+            name="name"
+            [(ngModel)]="order.customerName"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-9 mb-3">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Enter the Customer Code</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtcustcode"
+            placeholder="Please Enter the Customer code"
+            [(ngModel)]="order.customerCode"
+            name="custCode"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Select the Commodity</label>
+          <select
+            name="drpcommodity"
+            class="custom-select custom-select-sm mb-3"
+            [(ngModel)]="order.commodity"
+          >
+            <option selected>Item to Place!</option>
+            <option value="Milk">Milk</option>
+            <option value="Wheat">Wheat</option>
+            <option value="Rice">Rice</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-  
-  <div class="container">
-    <h3>ORDER REQUEST FORM</h3>
-<form>
     <div class="row">
-        <div class="col-9 mb-3">
-            <div class="form-group">
-                <label for="formGroupExampleInput">Enter the Customer Name</label>
-                <input type="text" class="form-control" id="txtcustname" placeholder="Please Enter the Name">
-              </div>
+      <div class="col-9 mb-3">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="txtmail"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            [(ngModel)]="order.emailId"
+            name="custemail"
+          />
         </div>
-       
+      </div>
     </div>
     <div class="row">
-        <div class=" col-9 mb-3">
-            <div class="form-group">
-                <label for="formGroupExampleInput">Enter the Customer Code</label>
-                <input type="text" class="form-control" id="txtcustcode" placeholder="Please Enter the Name">
-              </div>
+      <div class="col-9 mb-3">
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" (click)="submitOrder()">
+            Submit
+          </button>
+          <button type="button" class="btn btn-danger">Cancel</button>
         </div>
-    </div>
-    <div class="row">
-        <div class=" col-12 mb-3">
-            <div class="form-group">
-                <label for="formGroupExampleInput">Select the Commodity</label>
-                <select name="drpcommodity" class="custom-select custom-select-sm mb-3">
-                    <option selected>Item to Place!</option>
-                    <option value="Milk">Milk</option>
-                    <option value="Wheat">Wheat</option>
-                    <option value="Rice">Rice</option>
-                  </select>
-              </div>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-9 mb-3">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="txtmail" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-9 mb-3">
-          <div class="form-group">
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-danger">Danger</button>
-         </div>
-        </div>
+      </div>
     </div>
   </form>
-  
 </div>

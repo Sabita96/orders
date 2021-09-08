@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../service/http-service/order-service/order.service';
+import { ToastrService } from "ngx-toastr";
+
 
 @Component({
   selector: 'app-create-order',
@@ -13,17 +15,27 @@ export class CreateOrderComponent implements OnInit {
     commodity: '',
     emailId: '',
   };
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService,private  toastr: ToastrService) {}
 
   ngOnInit(): void {}
   submitOrder() {
-    console.log('sssssssssss', this.order);
+    console.log('URL AND VALUES', this.order);
+
     this.orderService.createOrder(this.order).subscribe(
+      
       (res: any) => {
         console.log('res', res);
+        this.toastr.success("Your Order has been submitted", "Success", {
+          timeOut: 3000,
+        });
+
       },
       (err) => {
+        this.toastr.error("Your Order not able to create! Pleae try some other time", "Failure", {
+          timeOut: 3000,
+        });
         console.log('er', err);
+
       }
     );
   }

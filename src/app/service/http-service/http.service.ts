@@ -9,8 +9,13 @@ export class HttpService {
   get(url: any) {
     return this.http.get(`${SharedEnvironment.apiUrl}` + url);
   }
+  // post(url: any, data: any) {
+  //   return this.http.post(`${SharedEnvironment.apiUrl}` + url, data);
+  // }
   post(url: any, data: any) {
-    return this.http.post(`${SharedEnvironment.apiUrl}` + url, data);
+    console.log('Post Parameters');
+    console.log(data);
+    return this.http.post(url, data);
   }
   put(url: any, data: any) {
     return this.http.put(`${SharedEnvironment.apiUrl}` + url, data);
